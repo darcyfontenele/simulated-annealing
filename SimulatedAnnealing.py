@@ -1,5 +1,6 @@
 from TSI import TSI
 from SA import SA
+import datetime as dt
 
 # TODO ADD COMENTARIOS
 
@@ -57,15 +58,22 @@ def mount_matrix(data, format):
 
 
 def main():
-    file = "Instancias/si535.tsp"
-    # file = "Instancias/gr48.tsp"
-    data = read_tsp_data(file)
-    tsi = mount_instance(data, "si")
-    # tsi = mount_instance(data, "gr")
-    print_matrix(tsi.matrix)
-    sa = SA(tsi.matrix, stopping_iter=50000)
-    sa.sa()
-    sa.plot_learning()
+    f = open("Results.txt", "w+")
+    for _ in range(1):
+        file = "Instancias/si1032.tsp"
+        # file = "Instancias/gr48.tsp"
+        data = read_tsp_data(file)
+        tsi = mount_instance(data, "si")
+        # tsi = mount_instance(data, "gr")
+        print_matrix(tsi.matrix)
+        initial_time = dt.datetime.utcnow()
+        sa = SA(tsi.matrix, stopping_iter=50000)
+        sa.sa(f)
+        final_time = dt.datetime.utcnow()
+        final_time = (final_time - initial_time).total_seconds()
+        f.write("Final Time: {} \n\n".format(str(final_time)))
+        # sa.plot_learning()
+    f.close()
 
 
 if __name__ == "__main__":

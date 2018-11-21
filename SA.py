@@ -70,7 +70,7 @@ class SA:
         plt.xlabel('Iteration')
         plt.show()
 
-    def sa(self):
+    def sa(self, file):
         while self.T >= self.stopping_temperature and self.iteration < self.stopping_iter:
             candidate = list(self.cur_solution)
             j = random.randint(2, self.N - 1)
@@ -81,9 +81,10 @@ class SA:
             self.iteration += 1
             self.fitness_list.append(self.cur_fitness)
 
-        print('Initial Solution: {}'.format(self.initial_solution_value))
-        print('Best solution: {}'.format(self.best_solution))
-        print('Best fitness obtained: {}'.format(self.best_fitness))
+        file.write('Initial Solution: {}\n'.format(self.initial_solution_value))
+        file.write('Best solution: {}\n'.format(self.best_solution))
+        file.write('Initial fitness: {}\n'.format(self.initial_fitness))
+        file.write('Best fitness obtained: {}\n'.format(self.best_fitness))
 
 # BACKUP KKKKKKK
 """cur_node = random.choice(self.nodes)
