@@ -1,5 +1,5 @@
-# TSP - Simulated Annealing Implementation
-**Simulated annealing** implementation using multiples instances with differents city quantities and diagram display to resolve the **Traveling Salesman Problem (TSP)**.
+# Travelling Salesman Problem (TSP) - Simulated Annealing
+**Travelling Salesman Problem** solver using **simulated annealing** as algorith. Using multiples instances as workload with differents city quantities and diagram display format.
 
 *Final work of the discipline of design and analysis of algorithms.
 
