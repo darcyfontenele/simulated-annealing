@@ -1,10 +1,6 @@
 import matplotlib.pyplot as plt
 import math
 import random
-
-# TODO ADD COMENTARIOS
-
-
 class SA:
     def __init__(self, matrix, T=-1, alpha=-1, stopping_T=-1, stopping_iter=-1):
         self.matrix = matrix
@@ -85,78 +81,3 @@ class SA:
         file.write('Best solution: {}\n'.format(self.best_solution))
         file.write('Initial fitness: {}\n'.format(self.initial_fitness))
         file.write('Best fitness obtained: {}\n'.format(self.best_fitness))
-
-# BACKUP KKKKKKK
-"""cur_node = random.choice(self.nodes)
-        # print("No atual: {}".format(cur_node))
-        # print("Dimensao da matriz: {}".format(len(self.matrix)))
-        solution = [cur_node]
-        free_list = list(self.nodes)
-        free_list.remove(cur_node)
-        # print(free_list)
-
-        while free_list:
-            min_col, min_row, min_idx = 9999, 9999, 9999
-            valores = []
-            for j in free_list:
-                if j < cur_node:
-                    valores.append(self.matrix[cur_node-1][j])
-                    if(min_row > self.matrix[cur_node-1][j]):
-                        min_row = self.matrix[cur_node-1][j]
-            for i in range(cur_node, len(self.matrix)):
-                valores.append(self.matrix[i][cur_node-1])
-                if (min_col > self.matrix[i][cur_node-1]) and (i in free_list):
-                    min_col = self.matrix[i][cur_node-1]
-                    min_idx = i
-            # print("valores: {}".format(valores))
-            if min_row < min_col:
-                closest_dist = min_row
-                cur_node = self.matrix[cur_node-1].index(closest_dist)
-            else:
-                closest_dist = min_col
-                cur_node = min_idx
-            # closest_dist = min(min([self.matrix[cur_node][j] for j in free_list[0:cur_node]]) and
-            #                    min([self.matrix[i][cur_node] for i in range(cur_node, len(self.matrix))]))
-            # print("Menor Distancia: {}".format(closest_dist))
-            # cur_node = self.matrix[cur_node].index(closest_dist)
-            # print("No atual: {}".format(cur_node))
-            free_list.remove(cur_node)
-            # print(free_list)
-            solution.append(cur_node)
-            # print("Solucao")
-            # print(solution)
-
-        # print("Solucao Final")
-        # print(solution)
-        return solution"""
-
-"""    def initial_solution(self):
-        cur_node = random.choice(self.nodes)
-        solution = [cur_node]
-        free_list = list(self.nodes)
-        free_list.remove(cur_node)
-        # print("Solucao Inicial -> {}".format(solution))
-        # print("Nos nao Visitados -> {}".format(free_list))
-        while free_list:
-            closest_dist = min([self.matrix[cur_node][j] for j in free_list])
-            # closest_dist = 9999
-            # print("No atual -> {}".format(cur_node))
-            # print(self.matrix[cur_node])
-            # for j in free_list:
-            #     closest_dist = min(closest_dist, self.matrix[cur_node][j])
-            # cur_node = self.matrix[cur_node].index(closest_dist)
-            # print("Menor Distancia -> {}".format(closest_dist))
-            idx_rep = [i for i, item in enumerate(self.matrix[cur_node]) if item == closest_dist]
-            # print("Colunas Repetidas -> {}".format(idx_rep))
-            # print("Nos nao Visitados -> {}".format(free_list))
-            # print("Nº de nos nao Visitados -> {}".format(len(free_list)))
-            for i in idx_rep:
-                # print(i)
-                cur_node = i
-                # print("{} esta na lista: {}".format(cur_node, cur_node in free_list))
-                if cur_node in free_list:
-                    free_list.remove(cur_node)
-                    break
-            solution.append(cur_node)
-
-        return solution"""

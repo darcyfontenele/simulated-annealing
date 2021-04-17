@@ -2,9 +2,6 @@ from TSI import TSI
 from SA import SA
 import datetime as dt
 
-# TODO ADD COMENTARIOS
-
-
 def mount_instance(data, format):
     matrix = mount_matrix(data, format)
     instance = TSI(data[0], data[1], data[2],
@@ -22,7 +19,7 @@ def read_tsp_data(tsp_name):
 
 
 def print_matrix(matrix):
-    f = open("FullMatrix.txt", "w+")
+    f = open("full_matrix.txt", "w+")
     for i in matrix:
         f.write(str(i))
         f.write("\n")
@@ -49,22 +46,21 @@ def mount_matrix(data, format):
             row = []
         else:
             row.append(int(i))
-    # COMPLETANDO A MATRIZ
     for i in new_matrix:
         for j in range(new_matrix.index(i)+1, len(new_matrix)):
             i.append(new_matrix[j][new_matrix.index(i)])
-    # MATRIZ SEM OS 0's new_matrix[1:]
     return new_matrix
 
 
 def main():
-    f = open("Results.txt", "w+")
+    f = open("results.txt", "w+")
     for _ in range(1):
-        file = "Instancias/si1032.tsp"
-        # file = "Instancias/gr48.tsp"
+        # file = "instances/si1032.tsp"
+        # file = "instances/gr48.tsp"
+        file = "instances/gr17.tsp"
         data = read_tsp_data(file)
-        tsi = mount_instance(data, "si")
-        # tsi = mount_instance(data, "gr")
+        # tsi = mount_instance(data, "si")
+        tsi = mount_instance(data, "gr")
         print_matrix(tsi.matrix)
         initial_time = dt.datetime.utcnow()
         sa = SA(tsi.matrix, stopping_iter=50000)

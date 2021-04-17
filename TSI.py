@@ -1,6 +1,3 @@
-# TODO ADD COMENTARIOS
-
-
 class TSI:
     name = None
     type = None
